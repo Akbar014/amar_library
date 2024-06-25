@@ -70,7 +70,7 @@ class DepositMoneyView(TransactionCreateMixin):
 
         messages.success(
             self.request,
-            f'{"{:,.2f}".format(float(amount))}$ was deposited to your account successfully'
+            f'{"{:,.2f}".format(float(amount))} BDT was deposited to your account successfully'
         )
         send_transaction_email(self.request.user, amount, "Deposite Message", "transactions/deposite_email.html")
         return super().form_valid(form)

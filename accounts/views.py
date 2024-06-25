@@ -38,7 +38,7 @@ class UserAccountUpdate(View):
     
     def get(self, request):
         form = UserUpdateForm(instance= request.user)
-        borrowed_books = BorrowedBooks.objects.all()
+        borrowed_books = BorrowedBooks.objects.filter(user=request.user.account)
         return render (request, self.template_name, {'form': form, 'borrowed_books': borrowed_books })
     
     def post (self, request):
